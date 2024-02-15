@@ -18,12 +18,26 @@ class MainActivity : AppCompatActivity() {
         val bF: Button =findViewById(R.id.btnGF)
 
         bC.setOnClickListener{
-            val gC : Double
-            val gF : Double
+            if (gf.text.isEmpty()){
+                gf.setText("Por favor introducir grados F°")
+            }else {
+                val gradosF: Double
+                val result: Double
+                gradosF = gf.toString().toDouble()
+                result = (gradosF - 32) / 1.8
+                gc.setText(result.toString())
+            }
         }
         bF.setOnClickListener {
-            val gC : Double
-            val gF : Double
+            if (gc.text.isEmpty()){
+                gc.setText("Por favor introducir grados C°")
+            }else {
+                val gradosC: Double
+                val result: Double
+                gradosC = gc.toString().toDouble()
+                result = (gradosC * 1.8) + 32
+                gf.setText(result.toString())
+            }
         }
 
     }
